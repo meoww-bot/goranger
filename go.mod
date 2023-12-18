@@ -1,4 +1,4 @@
-module github/meoww-bot/goranger
+module github.com/meoww-bot/goranger
 
 go 1.17
 
