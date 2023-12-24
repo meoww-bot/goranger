@@ -1,4 +1,4 @@
-package ranger
+package client
 
 import (
 	"fmt"
@@ -8,20 +8,20 @@ import (
 
 type RangerServiceError struct {
 	Method         HttpMethod //api.method.name
-	Path           string     //api.path
+	URL            string     //
 	ExpectedStatus int        //api.expected_status
 	RespStatusCode int
 	RespContent    string
 }
 
 func (e *RangerServiceError) Error() error {
-	return fmt.Errorf("%s %s failed: expected_status=\"%d\", status=\"%d\", msg=\"%s\"", e.Method, e.Path, e.ExpectedStatus, e.RespStatusCode, e.RespContent)
+	return fmt.Errorf("%s %s failed: expected_status=\"%d\", status=\"%d\", msg=\"%s\"", e.Method, e.URL, e.ExpectedStatus, e.RespStatusCode, e.RespContent)
 }
 
-func NewRangerServiceError(api API, resp *requests.Response) RangerServiceError {
+func NewRangerServiceError(URL string, api API, resp *requests.Response) RangerServiceError {
 	return RangerServiceError{
 		Method:         api.Method,
-		Path:           api.Path,
+		URL:            URL,
 		ExpectedStatus: api.ExpectedStatus,
 		RespStatusCode: resp.StatusCode(),
 		RespContent:    resp.Text(),

@@ -14,3 +14,9 @@ type RangerBaseModelObject struct {
 	UpdateTime int    `json:"updateTime"`
 	Version    int    `json:"version"`
 }
+
+func NewRangerBaseModelObject() RangerBaseModelObject {
+	return RangerBaseModelObject{
+		IsEnabled: true,
+	}
+}

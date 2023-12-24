@@ -1,4 +1,4 @@
-package ranger
+package client
 
 import (
 	"log/slog"
@@ -65,7 +65,7 @@ func (c *RangerClient) CallAPI(api API, query_params requests.Params, request_da
 
 	}
 
-	slog.Info("call api ", "url", API_URL, "method", api.Method)
+	slog.Info("call api ", "method", api.Method, "url", API_URL)
 
 	var data requests.Jsoni
 	var params requests.Params
@@ -112,7 +112,7 @@ func (c *RangerClient) CallAPI(api API, query_params requests.Params, request_da
 		ret = nil
 
 	} else {
-		rserror := NewRangerServiceError(api, resp)
+		rserror := NewRangerServiceError(API_URL, api, resp)
 		err = rserror.Error()
 	}
 	// fmt.Println(string(resp.Body()))
