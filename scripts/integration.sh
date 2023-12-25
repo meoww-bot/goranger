@@ -13,6 +13,7 @@ function install_ranger() {
 
 function wait_ranger() {
     # Wait for port to open
+    sleep 30
     counter=0
     while [ 1 ]; do
         curl http://127.0.0.1:6080
@@ -34,6 +35,7 @@ function wait_ranger() {
 }
 
 function run_tests() {
+    cd /home/runner/work/goranger/goranger/
     go test -v ./client/.
 }
 
