@@ -1,6 +1,6 @@
 module github.com/meoww-bot/goranger
 
-go 1.17
+go 1.21
 
 require (
 	github.com/ahuigo/requests v1.0.34

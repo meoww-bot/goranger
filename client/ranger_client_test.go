@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	ranger_url      = "http://192.168.233.80:6080"
+	ranger_url      = "http://127.0.0.1:6080"
 	ranger_username = "admin"
 	ranger_password = "rangeradmin1"
 )
@@ -302,31 +302,31 @@ func TestFindServices(t *testing.T) {
 
 }
 
-// func TestCreateHdfsServices(t *testing.T) {
+func TestCreateHdfsServices(t *testing.T) {
 
-// 	service := model.RangerService{
-// 		Type:        model.RangerServiceTypeHdfs,
-// 		Name:        "hdfs1",
-// 		DisplayName: "hdfs1",
-// 	}
+	service := model.RangerService{
+		Type:        model.RangerServiceTypeHdfs,
+		Name:        "hdfs1",
+		DisplayName: "hdfs1",
+	}
 
-// 	service.IsEnabled = true
+	service.IsEnabled = true
 
-// 	serviceConfig := model.NewRangerServiceHdfsConfig()
-// 	serviceConfig.FsDefaultName = "http://namenode:9000"
-// 	serviceConfig.Username = "admin"
-// 	serviceConfig.Password = "rangeradmin1"
+	serviceConfig := model.NewRangerServiceHdfsConfig()
+	serviceConfig.FsDefaultName = "http://namenode:9000"
+	serviceConfig.Username = "admin"
+	serviceConfig.Password = "rangeradmin1"
 
-// 	service.Configs = serviceConfig
+	service.Configs = serviceConfig
 
-// 	serviceResult, err := Client.CreateService(service)
+	serviceResult, err := Client.CreateService(service)
 
-// 	if err != nil {
-// 		t.Error(err)
-// 	} else {
-// 		t.Logf("Create service [%s] success", serviceResult.Name)
-// 		PrettyPrint(t, serviceResult)
+	if err != nil {
+		t.Error(err)
+	} else {
+		t.Logf("Create service [%s] success", serviceResult.Name)
+		PrettyPrint(t, serviceResult)
 
-// 	}
+	}
 
-// }
+}
