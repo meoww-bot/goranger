@@ -16,14 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Setup Ranger
-      run: |
-        docker network create ranger-env
-        git clone https://github.com/kadensungbincho/apache-ranger-docker-poc.git
-        cd apache-ranger-docker-poc/docker-composes/ranger
-        docker-compose up -d
-        docker ps -a
-
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
@@ -31,6 +23,4 @@ jobs:
 
     - name: Test
       run: |
-        curl http://127.0.0.1:6080/login.jsp
-
-        go test -v ./client/.
+        bash ./scripts/integration.sh
