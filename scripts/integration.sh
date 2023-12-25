@@ -16,7 +16,9 @@ function wait_ranger() {
     counter=0
     while [ 1 ]; do
         curl http://127.0.0.1:6080
-        if [ $? -eq 0 ]; then
+        r=$?
+        echo $r
+        if [ $r -eq 0 ]; then
             break
         fi
         counter=$((counter + 1))
