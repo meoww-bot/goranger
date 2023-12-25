@@ -149,19 +149,6 @@ func TestGetPolicyByNotFoundID(t *testing.T) {
 
 }
 
-func TestDeletePolicyByName(t *testing.T) {
-
-	err := Client.DeletePolicy("hdfs", "test_policy")
-
-	if err != nil {
-		t.Error(err)
-	} else {
-
-		t.Logf("Delete policy success")
-	}
-
-}
-
 func TestCreatePolicyWithDunpName(t *testing.T) {
 
 	policy := model.NewRangerPolicy()
@@ -271,6 +258,19 @@ func TestCreatePolicy2(t *testing.T) {
 	}
 
 	t.Logf("Create policy success. Name: %s, PolicyId: %d", PolicyToDelete.Name, PolicyToDelete.Id)
+
+}
+
+func TestDeletePolicyByName(t *testing.T) {
+
+	err := Client.DeletePolicy("hdfs", "test_policy")
+
+	if err != nil {
+		t.Error(err)
+	} else {
+
+		t.Logf("Delete policy success")
+	}
 
 }
 
