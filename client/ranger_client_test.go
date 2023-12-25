@@ -47,8 +47,8 @@ func TestCreateHdfsServices(t *testing.T) {
 
 	service := model.RangerService{
 		Type:        model.RangerServiceTypeHdfs,
-		Name:        "hdfs1",
-		DisplayName: "hdfs1",
+		Name:        "hdfs",
+		DisplayName: "hdfs",
 	}
 
 	service.IsEnabled = true
