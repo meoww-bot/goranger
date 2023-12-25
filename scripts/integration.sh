@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux
+set -ux
 
 function install_ranger() {
 
