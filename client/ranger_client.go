@@ -32,6 +32,11 @@ func NewClient(baseURL string, auth requests.Auth) (*RangerClient, error) {
 	req := session
 
 	resp, err := req.Get(baseURL, auth)
+
+	if err != nil {
+		return nil, err
+	}
+
 	if resp.StatusCode() == http.StatusOK {
 		slog.Info("login success")
 	}

@@ -30,4 +30,6 @@ jobs:
 
     - name: Test
       run: |
+        curl http://127.0.0.1:6080/login.jsp
+
         go test -v ./client/.
