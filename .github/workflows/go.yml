@@ -22,7 +22,7 @@ jobs:
         git clone https://github.com/kadensungbincho/apache-ranger-docker-poc.git
         cd apache-ranger-docker-poc/docker-composes/ranger
         docker-compose up -d
-        curl http://127.0.0.1:6080/login.jsp
+        docker ps -a
 
     - name: Set up Go
       uses: actions/setup-go@v4
