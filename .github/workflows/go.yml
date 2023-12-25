@@ -30,4 +30,7 @@ jobs:
 
     - name: Test
       run: |
+        ls
+        pwd
+        cd goranger
         go test -v client/
